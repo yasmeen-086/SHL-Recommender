@@ -307,6 +307,11 @@ app.add_middleware(
 )
 
 
+
+@app.get("/")
+def root():
+    return {"service": "SHL Assessment Recommender", "status": "running", "endpoints": {"health": "GET /health", "chat": "POST /chat"}}
+
 @app.get("/health")
 def health_check():
     return {"status": "ok", "catalog_size": len(CATALOG)}
